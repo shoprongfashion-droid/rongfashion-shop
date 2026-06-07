@@ -3,67 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RONG Fashion</title>
+    <title>RONG Fashion | Premium Collection</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background: #fff; padding-bottom: 80px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #fff; padding-bottom: 70px; }
+        
         header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
-        
-        /* নতুন মেনু স্টাইল */
-        .top-menu { display: flex; justify-content: space-around; padding: 12px; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
-        .top-menu a { text-decoration: none; color: #333; font-size: 14px; font-weight: bold; }
-        
-        .banner { width: 100%; height: 250px; }
-        .banner img { width: 100%; height: 100%; object-fit: cover; }
-        
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
-        .card { border: 1px solid #eee; padding: 10px; border-radius: 12px; text-align: center; }
-        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
-        .btn { background: #25D366; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        
-        .delivery-box { padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 12px; margin: 15px; text-align: center; }
-        
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid #ddd; box-shadow: 0 -2px 5px rgba(0,0,0,0.05); }
-        .nav-bar a { text-decoration: none; color: #000; font-size: 14px; text-align: center; }
+        .logo { height: 50px; }
+
+        /* নতুন ব্যানার */
+        .hero { width: 100%; height: 250px; background: url('https://img.freepik.com/free-vector/fashion-sale-banner-design_23-2148560064.jpg') no-repeat center center/cover; }
+
+        .section-title { padding: 20px 10px; font-size: 20px; font-weight: bold; border-left: 5px solid #000; margin: 10px; }
+
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
+        .card { border: 1px solid #f0f0f0; padding: 10px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
+        .price { color: #d32f2f; font-weight: bold; margin: 8px 0; }
+        .btn-order { background: #000; color: #fff; padding: 10px; border: none; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
+
+        /* নতুন ডেলিভারি ও পেমেন্ট সেকশন */
+        .info-section { background: #f9f9f9; padding: 20px; margin: 20px 10px; border-radius: 12px; border: 1px solid #eee; }
+        .info-section h3 { margin-bottom: 10px; }
+        .info-section p { font-size: 14px; margin: 5px 0; color: #444; }
+
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; z-index: 1000; }
+        .bottom-nav a { text-decoration: none; color: #333; font-size: 12px; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <header><h1>RONG Fashion</h1></header>
+    <header>
+        <img src="1780835307194.png" class="logo" alt="RONG Fashion">
+    </header>
 
-    <nav class="top-menu">
-        <a href="#">Home</a>
-        <a href="#">T-Shirts</a>
-        <a href="#">Offers</a>
-        <a href="#">Contact</a>
-    </nav>
+    <section class="hero"></section>
 
-    <div class="banner"><img src="1000005520.jpg"></div>
+    <h2 class="section-title">ছেলেদের কালেকশন</h2>
+    <div class="product-grid" id="menGrid"></div>
 
-    <div class="grid">
-        <div class="card"><img src="1000005523.jpg"><p>T-Shirt 1</p><p>৳৫২০</p><button class="btn" onclick="order('T-Shirt 1')">WhatsApp Order</button></div>
-        <div class="card"><img src="1000005524.jpg"><p>T-Shirt 2</p><p>৳৫৪০</p><button class="btn" onclick="order('T-Shirt 2')">WhatsApp Order</button></div>
-        <div class="card"><img src="1000005525.jpg"><p>Three-Piece</p><p>৳৮৫০</p><button class="btn" onclick="order('Three-Piece')">WhatsApp Order</button></div>
+    <h2 class="section-title">মেয়েদের কালেকশন</h2>
+    <div class="product-grid" id="womenGrid"></div>
+
+    <div class="info-section">
+        <h3>🚚 পেমেন্ট ও ডেলিভারি তথ্য</h3>
+        <p>✅ <b>ক্যাশ অন ডেলিভারি:</b> সারাদেশে এভেলেবল।</p>
+        <p>✅ <b>বিকাশ/নগদ পেমেন্ট:</b> 017xxxxxxxx</p>
+        <p>🚚 <b>ডেলিভারি চার্জ:</b> ঢাকা সিটি ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।</p>
+        <p>📦 <b>সময়:</b> অর্ডার কনফার্মের ২-৫ কার্যদিবসের মধ্যে ডেলিভারি।</p>
     </div>
 
-    <div class="delivery-box">
-        <h3>পেমেন্ট ও ডেলিভারি</h3>
-        <p>✅ <b>Cash on Delivery (COD)</b> এভেলেবল</p>
-        <p>🚚 ঢাকা সিটি: ২-৩ দিন | ঢাকার বাইরে: ৩-৫ দিন</p>
-    </div>
-
-    <div class="nav-bar">
+    <div class="bottom-nav">
         <a href="#">🏠<br>Home</a>
-        <a href="#">🛒<br>Cart</a>
-        <a href="#">⭐<br>Review</a>
-        <a href="#">❤️<br>Favorite</a>
+        <a href="#">📂<br>Shop</a>
+        <a href="https://forms.gle/d3bWW9toUxJcLqF48">⭐<br>Review</a>
+        <a href="https://forms.gle/rZYoKGf3LtqRJnMKA">🛒<br>Cart</a>
     </div>
 
     <script>
-        function order(product) {
-            let phone = "88017xxxxxxxx"; 
-            let url = "https://wa.me/" + phone + "?text=আমি এই পণ্যটি কিনতে চাই: " + product + "। ক্যাশ অন ডেলিভারি দিতে পারবেন?";
-            window.open(url, '_blank');
+        const menGrid = document.getElementById('menGrid');
+        const womenGrid = document.getElementById('womenGrid');
+
+        for (let i = 1; i <= 6; i++) { // প্রোডাক্ট সংখ্যা কমিয়ে ৬টি করলাম যাতে সাইট ভারী না হয়
+            menGrid.innerHTML += `
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300" alt="Men">
+                <p>Men Collection ${i}</p>
+                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
+                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+            </div>`;
+            
+            womenGrid.innerHTML += `
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d505c6?q=80&w=300" alt="Women">
+                <p>Women Collection ${i}</p>
+                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
+                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+            </div>`;
         }
     </script>
 </body>
