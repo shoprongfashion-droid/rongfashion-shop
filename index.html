@@ -3,67 +3,73 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RONG Fashion</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { padding-bottom: 90px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #f8f8f8; padding-bottom: 70px; }
         
-        /* লোগো ও ব্যানার */
-        header { padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
-        .logo { height: 40px; }
+        /* Header */
+        header { background: #fff; padding: 12px; text-align: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+        .logo { height: 30px; }
+        
+        /* Banner */
         .banner { width: 100%; height: 200px; }
         .banner img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* গ্রিড */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-        .card { border: 1px solid #eee; padding: 8px; border-radius: 10px; text-align: center; }
-        .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
-        .btn { background: #25D366; color: #fff; border: none; padding: 8px; width: 100%; border-radius: 5px; font-weight: bold; margin-top: 5px; }
-
-        /* ডেলিভারি সেকশন */
-        .delivery-section { background: #f4f4f4; padding: 15px; margin: 15px; border-radius: 10px; border-left: 5px solid #25D366; }
         
-        /* নিচের মেনুবার */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px; border-top: 2px solid #eee; }
-        .nav-bar a { text-decoration: none; color: #555; font-size: 12px; text-align: center; }
+        /* Product Details */
+        .container { background: #fff; margin: 15px; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .product-img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+        .product-title { font-size: 20px; font-weight: bold; margin-bottom: 5px; }
+        .price { font-size: 22px; color: #c00; font-weight: bold; margin: 10px 0; }
+        
+        /* Table */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; border: 1px solid #eee; }
+        th, td { padding: 10px; border: 1px solid #eee; text-align: center; font-size: 14px; }
+        th { background: #f4f4f4; }
+        
+        /* Order Button */
+        .btn-order { background: #000; color: #fff; padding: 14px; width: 100%; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; }
+        
+        /* Bottom Menu */
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; }
+        .nav-bar div { font-size: 12px; text-align: center; color: #444; }
     </style>
 </head>
 <body>
 
     <header><img src="1780835307194.png" class="logo"></header>
+    
     <div class="banner"><img src="1000005520.jpg"></div>
 
-    <div class="grid" id="product-grid">
-        </div>
+    <div class="container">
+        <h2 class="product-title">Mens Premium T-Shirt</h2>
+        <img src="1000005523.jpg" class="product-img">
+        <p>Fabrilife স্টাইলে প্রিমিয়াম কোয়ালিটি কম্বড কটন টি-শার্ট। আরামদায়ক ও টেকসই।</p>
+        <p class="price">৳৬৪৯</p>
+        
+        <h4 style="margin-top: 10px;">Size Guide (Inches)</h4>
+        <table>
+            <tr><th>Size</th><th>Chest</th><th>Length</th></tr>
+            <tr><td>M</td><td>39"</td><td>27.5"</td></tr>
+            <tr><td>L</td><td>40.5"</td><td>28"</td></tr>
+            <tr><td>XL</td><td>43"</td><td>29"</td></tr>
+        </table>
 
-    <div class="delivery-section">
-        <h4>🚚 ডেলিভারি ও পেমেন্ট</h4>
-        <p>✅ <b>পেমেন্ট:</b> ক্যাশ অন ডেলিভারি (COD)</p>
-        <p>✅ <b>বিকাশ/নগদ:</b> ০১৭XXXXXXXX</p>
-        <p>🚚 <b>সময়:</b> ঢাকা (২-৩ দিন), বাইরে (৩-৫ দিন)</p>
+        <button class="btn-order" onclick="order()">ADD TO CART</button>
     </div>
 
     <div class="nav-bar">
-        <a href="#">🏠<br>Home</a>
-        <a href="#">🛒<br>Cart</a>
-        <a href="#">⭐<br>Review</a>
-        <a href="#">❤️<br>Favorite</a>
+        <div>🏠<br>Home</div>
+        <div>🛒<br>Cart</div>
+        <div>⭐<br>Review</div>
+        <div>❤️<br>Wishlist</div>
     </div>
 
     <script>
-        const grid = document.getElementById('product-grid');
-        for(let i=1; i<=20; i++) {
-            grid.innerHTML += `
-            <div class="card">
-                <img src="1000005523.jpg">
-                <p>T-Shirt ${i}</p>
-                <button class="btn" onclick="order('T-Shirt ${i}')">Order</button>
-            </div>`;
-        }
-
-        function order(product) {
-            let phone = "88017xxxxxxxx"; 
-            window.open("https://wa.me/" + phone + "?text=আমি কিনতে চাই: " + product, '_blank');
+        function order() {
+            let phone = "88017xxxxxxxx"; // এখানে আপনার আসল হোয়াটসঅ্যাপ নাম্বারটি লিখে দিন
+            window.open(`https://wa.me/${phone}?text=আমি Mens Premium T-Shirt টি কিনতে চাই।`, '_blank');
         }
     </script>
 </body>
