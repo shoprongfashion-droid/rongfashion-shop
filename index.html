@@ -4,58 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RONG Fashion | Premium Shop</title>
+    <title>RONG Fashion | Premium Store</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background: #f4f4f4; padding-bottom: 60px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: #fff; padding-bottom: 70px; }
         
-        /* Banner */
-        .banner { width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; }
-        
-        /* Product Grid */
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-        .card { background: #fff; padding: 10px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 130px; object-fit: cover; border-radius: 5px; }
-        .price { font-weight: bold; color: #d32f2f; }
-        .btn-order { background: #000; color: #fff; padding: 8px; border: none; width: 100%; margin-top: 8px; border-radius: 4px; }
+        /* Header & Logo */
+        header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+        .logo { height: 50px; }
 
-        /* Bottom Nav */
-        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; z-index: 1000; }
+        /* Banner Section (Home Page) */
+        .hero { width: 100%; height: 350px; background: #ddd; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Product Grid (50+ Items Capacity) */
+        .container { padding: 15px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .card { border: 1px solid #f0f0f0; padding: 10px; border-radius: 8px; text-align: center; }
+        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 5px; }
+        .price { color: #d32f2f; font-weight: bold; margin: 5px 0; }
+        .btn-order { background: #000; color: #fff; padding: 8px; border: none; width: 100%; border-radius: 4px; cursor: pointer; }
+
+        /* Bottom Navigation */
+        .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px; border-top: 1px solid #ddd; }
         .bottom-nav a { text-decoration: none; color: #333; font-size: 12px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div class="banner">
-        <div>
-            <h1>RONG Fashion</h1>
-            <p>সেরা দামে প্রিমিয়াম কালেকশন</p>
-        </div>
-    </div>
+    <header>
+        <img src="1780835307194.png" class="logo" alt="RONG Fashion">
+    </header>
 
-    <h3 style="padding:15px;">Hot Deals</h3>
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800" alt="Model">
+    </section>
 
-    <div class="product-grid">
-        <div class="card">
-            <div style="background:#eee; height:130px; display:flex; align-items:center; justify-content:center;">ছবি ১</div>
-            <p>Premium T-Shirt</p>
-            <p class="price">৳৭৯৯</p>
-            <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
-        </div>
-        <div class="card">
-            <div style="background:#eee; height:130px; display:flex; align-items:center; justify-content:center;">ছবি ২</div>
-            <p>Exclusive Panjabi</p>
-            <p class="price">৳১৯৯৯</p>
-            <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
-        </div>
+    <div class="container">
+        <h3 style="margin: 20px 0;">আমাদের কালেকশন</h3>
+        <div class="product-grid" id="productContainer">
+            </div>
     </div>
 
     <div class="bottom-nav">
         <a href="#">🏠<br>Home</a>
-        <a href="#">📂<br>Category</a>
+        <a href="#">📂<br>Shop</a>
+        <a href="https://forms.gle/d3bWW9toUxJcLqF48">⭐<br>Review</a>
         <a href="https://forms.gle/rZYoKGf3LtqRJnMKA">🛒<br>Cart</a>
-        <a href="https://forms.gle/d3bWW9toUxJcLqF48">👤<br>Account</a>
     </div>
 
+    <script>
+        // ৫০টি পণ্যের জন্য লুপ
+        const container = document.getElementById('productContainer');
+        for (let i = 1; i <= 50; i++) {
+            container.innerHTML += `
+            <div class="card">
+                <div style="background:#eee; height:150px; margin-bottom:10px;">Product ${i}</div>
+                <p>Premium Item ${i}</p>
+                <p class="price">৳${(i * 100) + 500}</p>
+                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+            </div>`;
+        }
+    </script>
 </body>
 </html>
