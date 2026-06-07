@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -11,8 +12,8 @@
         header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
         .logo { height: 50px; }
 
-        /* নতুন ব্যানার */
-        .hero { width: 100%; height: 250px; background: url('https://img.freepik.com/free-vector/fashion-sale-banner-design_23-2148560064.jpg') no-repeat center center/cover; }
+        /* ছেলেদের জন্য নতুন ব্যানার */
+        .hero { width: 100%; height: 250px; background: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000') no-repeat center center/cover; }
 
         .section-title { padding: 20px 10px; font-size: 20px; font-weight: bold; border-left: 5px solid #000; margin: 10px; }
 
@@ -21,13 +22,10 @@
         .card { border: 1px solid #f0f0f0; padding: 10px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
         .price { color: #d32f2f; font-weight: bold; margin: 8px 0; }
-        .btn-order { background: #000; color: #fff; padding: 10px; border: none; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-order { background: #25D366; color: #fff; padding: 10px; border: none; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
 
-        /* নতুন ডেলিভারি ও পেমেন্ট সেকশন */
         .info-section { background: #f9f9f9; padding: 20px; margin: 20px 10px; border-radius: 12px; border: 1px solid #eee; }
-        .info-section h3 { margin-bottom: 10px; }
-        .info-section p { font-size: 14px; margin: 5px 0; color: #444; }
-
+        
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; z-index: 1000; }
         .bottom-nav a { text-decoration: none; color: #333; font-size: 12px; text-align: center; font-weight: bold; }
     </style>
@@ -48,38 +46,44 @@
 
     <div class="info-section">
         <h3>🚚 পেমেন্ট ও ডেলিভারি তথ্য</h3>
-        <p>✅ <b>ক্যাশ অন ডেলিভারি:</b> সারাদেশে এভেলেবল।</p>
-        <p>✅ <b>বিকাশ/নগদ পেমেন্ট:</b> 017xxxxxxxx</p>
-        <p>🚚 <b>ডেলিভারি চার্জ:</b> ঢাকা সিটি ৬০ টাকা, ঢাকার বাইরে ১২০ টাকা।</p>
-        <p>📦 <b>সময়:</b> অর্ডার কনফার্মের ২-৫ কার্যদিবসের মধ্যে ডেলিভারি।</p>
+        <p>✅ <b>ক্যাশ অন ডেলিভারি</b> এভেলেবল।</p>
+        <p>✅ <b>বিকাশ/নগদ:</b> 017xxxxxxxx</p>
+        <p>🚚 <b>ডেলিভারি চার্জ:</b> ঢাকা ৬০ টাকা, বাইরে ১২০ টাকা।</p>
     </div>
 
     <div class="bottom-nav">
         <a href="#">🏠<br>Home</a>
         <a href="#">📂<br>Shop</a>
-        <a href="https://forms.gle/d3bWW9toUxJcLqF48">⭐<br>Review</a>
-        <a href="https://forms.gle/rZYoKGf3LtqRJnMKA">🛒<br>Cart</a>
+        <a href="https://wa.me/88017xxxxxxxx">⭐<br>Review</a>
+        <a href="https://wa.me/88017xxxxxxxx">🛒<br>Cart</a>
     </div>
 
     <script>
         const menGrid = document.getElementById('menGrid');
         const womenGrid = document.getElementById('womenGrid');
 
-        for (let i = 1; i <= 6; i++) { // প্রোডাক্ট সংখ্যা কমিয়ে ৬টি করলাম যাতে সাইট ভারী না হয়
+        // সরাসরি হোয়াটসঅ্যাপে অর্ডার করার ফাংশন
+        function sendOrder(productName) {
+            let phone = "88017xxxxxxxx"; // আপনার নাম্বারটি এখানে দিন
+            let msg = "আমি এই পণ্যটি কিনতে চাই: " + productName + "। বিস্তারিত জানান।";
+            window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank");
+        }
+
+        for (let i = 1; i <= 6; i++) {
             menGrid.innerHTML += `
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300" alt="Men">
-                <p>Men Collection ${i}</p>
-                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
-                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+                <p>Men Tee ${i}</p>
+                <p class="price">৳৬৪৯</p>
+                <button class="btn-order" onclick="sendOrder('Men Tee ${i}')">WhatsApp Order</button>
             </div>`;
             
             womenGrid.innerHTML += `
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1595777457583-95e059d505c6?q=80&w=300" alt="Women">
                 <p>Women Collection ${i}</p>
-                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
-                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+                <p class="price">৳৭৫০</p>
+                <button class="btn-order" onclick="sendOrder('Women Collection ${i}')">WhatsApp Order</button>
             </div>`;
         }
     </script>
