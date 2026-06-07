@@ -12,20 +12,19 @@
         header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
         .logo { height: 50px; }
 
-        /* ছেলেদের জন্য নতুন ব্যানার */
         .hero { width: 100%; height: 250px; background: url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1000') no-repeat center center/cover; }
-
         .section-title { padding: 20px 10px; font-size: 20px; font-weight: bold; border-left: 5px solid #000; margin: 10px; }
 
-        /* Product Grid */
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
         .card { border: 1px solid #f0f0f0; padding: 10px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
         .price { color: #d32f2f; font-weight: bold; margin: 8px 0; }
+        
+        /* ড্রপডাউন এবং বাটন স্টাইল */
+        .select-box { width: 100%; padding: 5px; margin-bottom: 5px; border-radius: 4px; border: 1px solid #ddd; }
         .btn-order { background: #25D366; color: #fff; padding: 10px; border: none; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
 
         .info-section { background: #f9f9f9; padding: 20px; margin: 20px 10px; border-radius: 12px; border: 1px solid #eee; }
-        
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; z-index: 1000; }
         .bottom-nav a { text-decoration: none; color: #333; font-size: 12px; text-align: center; font-weight: bold; }
     </style>
@@ -41,14 +40,11 @@
     <h2 class="section-title">ছেলেদের কালেকশন</h2>
     <div class="product-grid" id="menGrid"></div>
 
-    <h2 class="section-title">মেয়েদের কালেকশন</h2>
-    <div class="product-grid" id="womenGrid"></div>
-
     <div class="info-section">
         <h3>🚚 পেমেন্ট ও ডেলিভারি তথ্য</h3>
+        <p>✅ <b>ফেব্রিক:</b> ১০০% প্রিমিয়াম কটন, ১৭৫ GSM।</p>
         <p>✅ <b>ক্যাশ অন ডেলিভারি</b> এভেলেবল।</p>
         <p>✅ <b>বিকাশ/নগদ:</b> 017xxxxxxxx</p>
-        <p>🚚 <b>ডেলিভারি চার্জ:</b> ঢাকা ৬০ টাকা, বাইরে ১২০ টাকা।</p>
     </div>
 
     <div class="bottom-nav">
@@ -60,31 +56,37 @@
 
     <script>
         const menGrid = document.getElementById('menGrid');
-        const womenGrid = document.getElementById('womenGrid');
-
-        // সরাসরি হোয়াটসঅ্যাপে অর্ডার করার ফাংশন
-        function sendOrder(productName) {
-            let phone = "88017xxxxxxxx"; // আপনার নাম্বারটি এখানে দিন
-            let msg = "আমি এই পণ্যটি কিনতে চাই: " + productName + "। বিস্তারিত জানান।";
-            window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank");
-        }
 
         for (let i = 1; i <= 6; i++) {
             menGrid.innerHTML += `
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300" alt="Men">
-                <p>Men Tee ${i}</p>
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300" alt="T-Shirt">
+                <p>T-Shirt ${i}</p>
                 <p class="price">৳৬৪৯</p>
-                <button class="btn-order" onclick="sendOrder('Men Tee ${i}')">WhatsApp Order</button>
+                
+                <select class="select-box" id="size${i}">
+                    <option>Size: M</option>
+                    <option>Size: L</option>
+                    <option>Size: XL</option>
+                </select>
+                
+                <select class="select-box" id="color${i}">
+                    <option>Color: Black</option>
+                    <option>Color: White</option>
+                    <option>Color: Navy</option>
+                </select>
+
+                <button class="btn-order" onclick="sendOrder(${i}, 'T-Shirt ${i}')">WhatsApp Order</button>
             </div>`;
+        }
+
+        function sendOrder(id, productName) {
+            let size = document.getElementById('size' + id).value;
+            let color = document.getElementById('color' + id).value;
+            let phone = "88017xxxxxxxx"; // আপনার নাম্বার দিন
             
-            womenGrid.innerHTML += `
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1595777457583-95e059d505c6?q=80&w=300" alt="Women">
-                <p>Women Collection ${i}</p>
-                <p class="price">৳৭৫০</p>
-                <button class="btn-order" onclick="sendOrder('Women Collection ${i}')">WhatsApp Order</button>
-            </div>`;
+            let msg = "আমি অর্ডার করতে চাই: " + productName + "\n" + size + "\n" + color + "\nফেব্রিক: ১০০% প্রিমিয়াম কটন";
+            window.open("https://wa.me/" + phone + "?text=" + encodeURIComponent(msg), "_blank");
         }
     </script>
 </body>
