@@ -4,37 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RONG Fashion | Premium Collection</title>
+    <title>RONG Fashion | Premium Store</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         body { background: #fff; padding-bottom: 70px; }
         
         header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
         .logo { height: 50px; }
 
-        /* Professional Banner */
-        .hero { width: 100%; height: 300px; background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000') no-repeat center center/cover; }
+        .hero { width: 100%; height: 300px; background: url('https://images.unsplash.com/photo-1512436991641-6745612f260f?q=80&w=1000') no-repeat center center/cover; }
 
         .section-title { padding: 20px 10px; font-size: 20px; font-weight: bold; border-left: 5px solid #000; margin: 10px; }
 
-        /* Product Grid */
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
-        .card { border: 1px solid #f0f0f0; padding: 10px; border-radius: 12px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card { border: 1px solid #eee; padding: 10px; border-radius: 12px; text-align: center; }
         .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 8px; }
-        .price { color: #d32f2f; font-weight: bold; margin: 8px 0; }
-        .btn-order { background: #000; color: #fff; padding: 10px; border: none; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        
+        /* ছেলেদের জন্য আলাদা কালার ভ্যারিয়েশন */
+        .card.men { background-color: #f0faff; } 
+        .card.men-alt { background-color: #fff8f0; }
 
-        /* Bottom Nav */
+        .price { color: #d32f2f; font-weight: bold; margin: 8px 0; }
+        .btn-order { background: #000; color: #fff; padding: 8px; border: none; width: 100%; border-radius: 6px; cursor: pointer; }
+
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 12px; border-top: 1px solid #ddd; z-index: 1000; }
-        .bottom-nav a { text-decoration: none; color: #333; font-size: 12px; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="1780835307194.png" class="logo" alt="RONG Fashion">
-    </header>
-
+    <header><img src="1780835307194.png" class="logo"></header>
     <section class="hero"></section>
 
     <h2 class="section-title">ছেলেদের কালেকশন</h2>
@@ -44,32 +42,34 @@
     <div class="product-grid" id="womenGrid"></div>
 
     <div class="bottom-nav">
-        <a href="#">🏠<br>Home</a>
-        <a href="#">📂<br>Shop</a>
-        <a href="https://forms.gle/d3bWW9toUxJcLqF48">⭐<br>Review</a>
-        <a href="https://forms.gle/rZYoKGf3LtqRJnMKA">🛒<br>Cart</a>
+        <a href="#">🏠<br>Home</a><a href="#">📂<br>Shop</a>
+        <a href="https://forms.gle/d3bWW9toUxJcLqF48">⭐<br>Review</a><a href="https://forms.gle/rZYoKGf3LtqRJnMKA">🛒<br>Cart</a>
     </div>
 
     <script>
         const menGrid = document.getElementById('menGrid');
         const womenGrid = document.getElementById('womenGrid');
 
-        // ছেলেদের পণ্যের ছবি ও দাম (৫০০-১০০০ টাকা)
-        for (let i = 1; i <= 25; i++) {
+        // ছেলেদের পণ্য (বিভিন্ন ডিজাইন ও কালার)
+        for (let i = 1; i <= 20; i++) {
+            let className = i % 2 === 0 ? "men" : "men-alt";
             menGrid.innerHTML += `
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=300" alt="Men">
-                <p>Men Collection ${i}</p>
-                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
-                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+            <div class="card ${className}">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300" alt="Men">
+                <p>Men Design ${i}</p>
+                <p class="price">৳${500 + (i * 25)}</p>
+                <button class="btn-order">Order Now</button>
             </div>`;
-            
+        }
+
+        // মেয়েদের পণ্য
+        for (let i = 1; i <= 20; i++) {
             womenGrid.innerHTML += `
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1595777457583-95e059d505c6?q=80&w=300" alt="Women">
-                <p>Women Collection ${i}</p>
-                <p class="price">৳${500 + Math.floor(Math.random() * 500)}</p>
-                <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank"><button class="btn-order">Order Now</button></a>
+                <img src="https://images.unsplash.com/photo-1595777457583-95e059d505c6?w=300" alt="Women">
+                <p>Women Style ${i}</p>
+                <p class="price">৳${600 + (i * 20)}</p>
+                <button class="btn-order">Order Now</button>
             </div>`;
         }
     </script>
