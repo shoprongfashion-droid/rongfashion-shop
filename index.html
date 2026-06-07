@@ -1,51 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RONG Fashion</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
-        body { background: #fff; padding-bottom: 80px; }
-        header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+        body { padding-bottom: 90px; }
         
-        .banner { width: 100%; height: 250px; }
+        /* লোগো ও ব্যানার */
+        header { padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
+        .logo { height: 40px; }
+        .banner { width: 100%; height: 200px; }
         .banner img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* গ্রিড */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
+        .card { border: 1px solid #eee; padding: 8px; border-radius: 10px; text-align: center; }
+        .card img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
+        .btn { background: #25D366; color: #fff; border: none; padding: 8px; width: 100%; border-radius: 5px; font-weight: bold; margin-top: 5px; }
+
+        /* ডেলিভারি সেকশন */
+        .delivery-section { background: #f4f4f4; padding: 15px; margin: 15px; border-radius: 10px; border-left: 5px solid #25D366; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
-        .card { border: 1px solid #eee; padding: 10px; border-radius: 12px; text-align: center; }
-        .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
-        .btn { background: #25D366; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
-        
-        /* ডেলিভারি এবং পেমেন্ট সেকশন */
-        .delivery-box { padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 12px; margin: 15px; text-align: center; }
-        .delivery-box h3 { margin-bottom: 10px; }
-        .delivery-box p { font-size: 14px; margin: 4px 0; }
-        
-        /* নেভিগেশন বার */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid #ddd; box-shadow: 0 -2px 5px rgba(0,0,0,0.05); }
-        .nav-bar a { text-decoration: none; color: #000; font-size: 14px; text-align: center; }
+        /* নিচের মেনুবার */
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 10px; border-top: 2px solid #eee; }
+        .nav-bar a { text-decoration: none; color: #555; font-size: 12px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <header><h1>RONG Fashion</h1></header>
-
+    <header><img src="1780835307194.png" class="logo"></header>
     <div class="banner"><img src="1000005520.jpg"></div>
 
-    <div class="grid">
-        <div class="card"><img src="1000005523.jpg"><p>T-Shirt 1</p><p>৳৫২০</p><button class="btn" onclick="order('T-Shirt 1')">WhatsApp Order</button></div>
-        <div class="card"><img src="1000005524.jpg"><p>T-Shirt 2</p><p>৳৫৪০</p><button class="btn" onclick="order('T-Shirt 2')">WhatsApp Order</button></div>
-        <div class="card"><img src="1000005525.jpg"><p>Three-Piece</p><p>৳৮৫০</p><button class="btn" onclick="order('Three-Piece')">WhatsApp Order</button></div>
-    </div>
+    <div class="grid" id="product-grid">
+        </div>
 
-    <div class="delivery-box">
-        <h3>পেমেন্ট ও ডেলিভারি</h3>
-        <p>✅ <b>Cash on Delivery (COD)</b> এভেলেবল</p>
-        <p>✅ বিকাশ/নগদ: 017xxxxxxxx</p>
-        <hr style="margin: 10px 0;">
-        <p>🚚 <b>ঢাকা সিটি:</b> ২-৩ কার্যদিবস</p>
-        <p>🚚 <b>ঢাকার বাইরে:</b> ৩-৫ কার্যদিবস</p>
+    <div class="delivery-section">
+        <h4>🚚 ডেলিভারি ও পেমেন্ট</h4>
+        <p>✅ <b>পেমেন্ট:</b> ক্যাশ অন ডেলিভারি (COD)</p>
+        <p>✅ <b>বিকাশ/নগদ:</b> ০১৭XXXXXXXX</p>
+        <p>🚚 <b>সময়:</b> ঢাকা (২-৩ দিন), বাইরে (৩-৫ দিন)</p>
     </div>
 
     <div class="nav-bar">
@@ -56,10 +51,19 @@
     </div>
 
     <script>
+        const grid = document.getElementById('product-grid');
+        for(let i=1; i<=20; i++) {
+            grid.innerHTML += `
+            <div class="card">
+                <img src="1000005523.jpg">
+                <p>T-Shirt ${i}</p>
+                <button class="btn" onclick="order('T-Shirt ${i}')">Order</button>
+            </div>`;
+        }
+
         function order(product) {
-            let phone = "88017xxxxxxxx"; // আপনার নাম্বারটি এখানে বসান
-            let url = "https://wa.me/" + phone + "?text=আমি এই পণ্যটি কিনতে চাই: " + product + "। ক্যাশ অন ডেলিভারি দিতে পারবেন?";
-            window.open(url, '_blank');
+            let phone = "88017xxxxxxxx"; 
+            window.open("https://wa.me/" + phone + "?text=আমি কিনতে চাই: " + product, '_blank');
         }
     </script>
 </body>
