@@ -1,0 +1,197 @@
+index.html
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONG Fashion | রঙ ফ্যাশন</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #222;
+        }
+
+        /* নেভিগেশন বার */
+        nav {
+            background: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* হিরো সেকশন */
+        .hero {
+            background: #fff;
+            text-align: center;
+            padding: 80px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .btn {
+            background: #000;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #333;
+        }
+
+        /* প্রোডাক্ট সেকশন */
+        .products {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        /* প্রোডাক্ট গ্রিড */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* প্রোডাক্টের ছবির বক্স */
+        .product-img {
+            width: 100%;
+            height: 250px;
+            background: #eee;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+
+        /* ফুটার */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">RONG Fashion</a>
+        <ul>
+            <li><a href="#">হোম</a></li>
+            <li><a href="#">পোশাক</a></li>
+            <li><a href="#">যোগাযোগ</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Fashion For Everyone</h1>
+        <p>ছেলে ও মেয়েদের ট্রেন্ডি পোশাক</p>
+        <a href="#" class="btn">Shop Now</a>
+    </section>
+
+    <section class="products">
+        <h2>আমাদের কালেকশন</h2>
+        
+        <div class="product-grid">
+            <div class="card">
+                <div class="product-img">[ টি-শার্টের ছবি ]</div>
+                <h3>Premium T-Shirt</h3>
+                <div class="price">৳৭৯৯</div>
+                <a href="#" class="btn" style="padding: 8px 15px; font-size: 14px;">Add to Cart</a>
+            </div>
+
+            <div class="card">
+                <div class="product-img">[ হুডির ছবি ]</div>
+                <h3>Stylish Hoodie</h3>
+                <div class="price">৳১৪৯৯</div>
+                <a href="#" class="btn" style="padding: 8px 15px; font-size: 14px;">Add to Cart</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 RONG Fashion. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
