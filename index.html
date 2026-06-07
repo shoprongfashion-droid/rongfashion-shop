@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -8,19 +7,29 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
         body { background: #fff; padding-bottom: 80px; }
+        header { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+        
         .banner { width: 100%; height: 250px; }
         .banner img { width: 100%; height: 100%; object-fit: cover; }
+        
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px; }
         .card { border: 1px solid #eee; padding: 10px; border-radius: 12px; text-align: center; }
         .card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
         .btn { background: #25D366; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 10px; }
         
-        /* নতুন যোগ করা ডেলিভারি সেকশন */
-        .info-box { padding: 20px; background: #f9f9f9; border-top: 2px solid #ddd; text-align: center; margin-top: 20px; }
-        .info-box p { margin: 5px 0; font-size: 14px; }
+        /* ডেলিভারি এবং পেমেন্ট সেকশন */
+        .delivery-box { padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 12px; margin: 15px; text-align: center; }
+        .delivery-box h3 { margin-bottom: 10px; }
+        .delivery-box p { font-size: 14px; margin: 4px 0; }
+        
+        /* নেভিগেশন বার */
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #fff; display: flex; justify-content: space-around; padding: 15px; border-top: 1px solid #ddd; box-shadow: 0 -2px 5px rgba(0,0,0,0.05); }
+        .nav-bar a { text-decoration: none; color: #000; font-size: 14px; text-align: center; }
     </style>
 </head>
 <body>
+
+    <header><h1>RONG Fashion</h1></header>
 
     <div class="banner"><img src="1000005520.jpg"></div>
 
@@ -30,8 +39,8 @@
         <div class="card"><img src="1000005525.jpg"><p>Three-Piece</p><p>৳৮৫০</p><button class="btn" onclick="order('Three-Piece')">WhatsApp Order</button></div>
     </div>
 
-    <div class="info-box">
-        <h3>পেমেন্ট ও ডেলিভারি তথ্য</h3>
+    <div class="delivery-box">
+        <h3>পেমেন্ট ও ডেলিভারি</h3>
         <p>✅ <b>Cash on Delivery (COD)</b> এভেলেবল</p>
         <p>✅ বিকাশ/নগদ: 017xxxxxxxx</p>
         <hr style="margin: 10px 0;">
@@ -39,9 +48,16 @@
         <p>🚚 <b>ঢাকার বাইরে:</b> ৩-৫ কার্যদিবস</p>
     </div>
 
+    <div class="nav-bar">
+        <a href="#">🏠<br>Home</a>
+        <a href="#">🛒<br>Cart</a>
+        <a href="#">⭐<br>Review</a>
+        <a href="#">❤️<br>Favorite</a>
+    </div>
+
     <script>
         function order(product) {
-            let phone = "88017xxxxxxxx"; 
+            let phone = "88017xxxxxxxx"; // আপনার নাম্বারটি এখানে বসান
             let url = "https://wa.me/" + phone + "?text=আমি এই পণ্যটি কিনতে চাই: " + product + "। ক্যাশ অন ডেলিভারি দিতে পারবেন?";
             window.open(url, '_blank');
         }
