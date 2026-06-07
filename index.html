@@ -1,4 +1,3 @@
-index.html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -18,7 +17,7 @@ index.html
             color: #222;
         }
 
-        /* নেভিগেশন বার */
+        /* মেনু বার */
         nav {
             background: #000;
             padding: 15px 20px;
@@ -52,7 +51,7 @@ index.html
             font-size: 16px;
         }
 
-        /* হিরো সেকশন */
+        /* হিরো ব্যানার */
         .hero {
             background: #fff;
             text-align: center;
@@ -93,10 +92,13 @@ index.html
             margin: 0 auto;
         }
 
-        .products h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 28px;
+        .category-title {
+            font-size: 26px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000;
+            color: #111;
         }
 
         /* প্রোডাক্ট গ্রিড */
@@ -115,7 +117,6 @@ index.html
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* প্রোডাক্টের ছবির বক্স */
         .product-img {
             width: 100%;
             height: 250px;
@@ -141,6 +142,14 @@ index.html
             margin-bottom: 15px;
         }
 
+        /* যোগাযোগ সেকশন */
+        .contact {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
         /* ফুটার */
         footer {
             background: #000;
@@ -157,36 +166,71 @@ index.html
     <nav>
         <a href="#" class="logo">RONG Fashion</a>
         <ul>
-            <li><a href="#">হোম</a></li>
-            <li><a href="#">পোশাক</a></li>
-            <li><a href="#">যোগাযোগ</a></li>
+            <li><a href="#mens-section">ছেলেদের পোশাক</a></li>
+            <li><a href="#womens-section">মেয়েদের পোশাক</a></li>
+            <li><a href="#contact-section">যোগাযোগ</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <h1>Fashion For Everyone</h1>
-        <p>ছেলে ও মেয়েদের ট্রেন্ডি পোশাক</p>
-        <a href="#" class="btn">Shop Now</a>
+        <p>ছেলে ও মেয়েদের আলাদা ক্যাটেগরির প্রিমিয়াম কালেকশন</p>
+        <a href="#contact-section" class="btn">Shop Now</a>
     </section>
 
     <section class="products">
-        <h2>আমাদের কালেকশন</h2>
         
+        <h2 id="mens-section" class="category-title">👔 ছেলেদের কালেকশন (Men's)</h2>
         <div class="product-grid">
             <div class="card">
-                <div class="product-img">[ টি-শার্টের ছবি ]</div>
+                <div class="product-img">[ Premium T-Shirt ]</div>
                 <h3>Premium T-Shirt</h3>
                 <div class="price">৳৭৯৯</div>
-                <a href="#" class="btn" style="padding: 8px 15px; font-size: 14px;">Add to Cart</a>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
             </div>
-
             <div class="card">
-                <div class="product-img">[ হুডির ছবি ]</div>
-                <h3>Stylish Hoodie</h3>
-                <div class="price">৳১৪৯৯</div>
-                <a href="#" class="btn" style="padding: 8px 15px; font-size: 14px;">Add to Cart</a>
+                <div class="product-img">[ Exclusive Panjabi ]</div>
+                <h3>Exclusive Panjabi</h3>
+                <div class="price">৳১৯৯৯</div>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
+            </div>
+            <div class="card">
+                <div class="product-img">[ Denim Shirt ]</div>
+                <h3>Casual Denim Shirt</h3>
+                <div class="price">৳১৪০০</div>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
             </div>
         </div>
+
+        <h2 id="womens-section" class="category-title">👗 মেয়েদের কালেকশন (Women's)</h2>
+        <div class="product-grid">
+            <div class="card">
+                <div class="product-img">[ Trendy Kurti ]</div>
+                <h3>Trendy Kurti</h3>
+                <div class="price">৳১২৫০</div>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
+            </div>
+            <div class="card">
+                <div class="product-img">[ Designer Three Piece ]</div>
+                <h3>Designer Three Piece</h3>
+                <div class="price">৳১৮৫০</div>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
+            </div>
+            <div class="card">
+                <div class="product-img">[ Cotton Saree ]</div>
+                <h3>Exclusive Cotton Saree</h3>
+                <div class="price">৳২৫০০</div>
+                <a href="#contact-section" class="btn" style="padding: 8px 15px; font-size: 14px;">Order Now</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contact-section" class="contact">
+        <h2>সরাসরি অর্ডার করতে নিচে যোগাযোগ করুন</h2>
+        <p style="margin-bottom: 20px; color: #666;">পছন্দের প্রোডাক্টের স্ক্রিনশট নিয়ে আমাদের মেসেজ দিন</p>
+        <a href="https://wa.me/8801234567890" target="_blank" class="btn" style="background: #25D366; margin-right: 10px;">WhatsApp এ অর্ডার করুন</a>
+        <a href="https://facebook.com/yourpage" target="_blank" class="btn" style="background: #1877F2;">ফেসবুকে মেসেজ দিন</a>
     </section>
 
     <footer>
