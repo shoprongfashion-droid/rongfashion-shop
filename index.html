@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -9,14 +8,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
         body { background: #fdfdfd; color: #222; }
         nav { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        nav .logo { color: #fff; font-size: 20px; font-weight: bold; text-decoration: none; }
-        nav .logo span { display: block; font-size: 14px; color: #ccc; }
+        .logo img { height: 50px; border-radius: 5px; }
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 15px; }
         nav ul li a { color: #fff; text-decoration: none; font-size: 14px; }
         .hero { background: #000; text-align: center; padding: 80px 20px; color: #fff; }
         .btn { background: #fff; color: #000; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
-        .btn:hover { background: #eee; }
         .products { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { background: #fff; border: 1px solid #ddd; padding: 15px; text-align: center; border-radius: 8px; }
@@ -25,89 +22,78 @@
         .fav-btn { background: none; border: none; color: red; cursor: pointer; font-size: 14px; margin-bottom: 10px; }
         .section { padding: 40px 20px; text-align: center; }
         .order-item { background: #f9f9f9; padding: 15px; margin: 10px auto; border-left: 5px solid #28a745; max-width: 500px; text-align: left; }
+        footer { background: #222; color: #fff; padding: 30px 20px; text-align: center; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">RONG Fashion <span>رنگ / রঙ ফ্যাশন</span></a>
+        <a href="#" class="logo"><img src="1780835307194.png" alt="RONG Fashion"></a>
         <ul>
-            <li><a href="#products-section">কালেকশন</a></li>
-            <li><a href="#track-section">অর্ডার হিস্ট্রি</a></li>
+            <li><a href="#products-section">Shop</a></li>
+            <li><a href="#track-section">Track</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <h1>RONG Fashion Shop</h1>
-        <p>প্রিমিয়াম কোয়ালিটির সেরা পোশাক</p>
+        <p>Premium Quality Fashion</p>
         <br>
-        <a href="#products-section" class="btn">কালেকশন দেখুন</a>
+        <a href="#products-section" class="btn">Shop Now</a>
     </section>
 
     <section id="products-section" class="products">
-        <h2>আমাদের কালেকশন</h2>
+        <h2>Our Collection</h2>
         <div class="product-grid" style="margin-top: 20px;">
             <div class="card">
                 <div class="product-img">T-Shirt</div>
                 <h3>Premium T-Shirt</h3>
                 <div class="price">৳৭৯৯</div>
-                <button class="fav-btn" onclick="addToWishlist('Premium T-Shirt')">❤️ Add to Wishlist</button>
+                <button class="fav-btn" onclick="alert('Added to Wishlist!')">❤️ Add to Wishlist</button>
                 <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank" class="btn" style="display:block; background:#000; color:#fff;">Order Now</a>
             </div>
             <div class="card">
                 <div class="product-img">Panjabi</div>
                 <h3>Exclusive Panjabi</h3>
                 <div class="price">৳১৯৯৯</div>
-                <button class="fav-btn" onclick="addToWishlist('Exclusive Panjabi')">❤️ Add to Wishlist</button>
+                <button class="fav-btn" onclick="alert('Added to Wishlist!')">❤️ Add to Wishlist</button>
                 <a href="https://forms.gle/rZYoKGf3LtqRJnMKA" target="_blank" class="btn" style="display:block; background:#000; color:#fff;">Order Now</a>
             </div>
         </div>
     </section>
 
     <section id="track-section" class="section">
-        <h2>অর্ডার হিস্ট্রি চেক করুন</h2>
-        <input type="text" id="phoneInput" placeholder="আপনার অর্ডার করা ফোন নম্বর" style="padding:10px; width: 250px;">
-        <button onclick="checkOrderHistory()" style="padding:10px;">খুঁজুন</button>
+        <h2>Order History</h2>
+        <input type="text" id="phoneInput" placeholder="Enter Phone Number" style="padding:10px;">
+        <button onclick="checkOrderHistory()" style="padding:10px;">Check</button>
         <div id="resultBox"></div>
     </section>
 
     <section class="section" style="background: #f9f9f9;">
-        <h2>মতামত জানান</h2>
-        <p>আপনার মূল্যবান রিভিউ দিতে নিচের বাটনে ক্লিক করুন:</p>
-        <br>
-        <a href="https://forms.gle/d3bWW9toUxJcLqF48" target="_blank" class="btn" style="background:#007bff; color:#fff;">📝 রিভিউ দিন</a>
+        <h2>Share Your Review</h2>
+        <a href="https://forms.gle/d3bWW9toUxJcLqF48" target="_blank" class="btn" style="background:#007bff; color:#fff;">Write a Review</a>
     </section>
 
-    <script>
-        function addToWishlist(name) {
-            alert(name + ' আপনার ফেভারিট লিস্টে যোগ হয়েছে!');
-        }
+    <footer id="contact">
+        <h3>Contact Us</h3>
+        <p>Email: info@rongfashion.com</p>
+        <p>Phone: +8801XXXXXXXXX</p>
+        <p>Address: Dhaka, Bangladesh</p>
+    </footer>
 
+    <script>
         function checkOrderHistory() {
             var phone = document.getElementById('phoneInput').value.trim();
             var resultBox = document.getElementById('resultBox');
             var sheetBestUrl = "https://api.sheetbest.com/sheets/e4936c44-e340-47af-9694-38385cf871a9";
-            
-            resultBox.innerHTML = "খোঁজা হচ্ছে...";
-            
-            fetch(sheetBestUrl)
-            .then(response => response.json())
-            .then(data => {
+            resultBox.innerHTML = "Searching...";
+            fetch(sheetBestUrl).then(res => res.json()).then(data => {
                 resultBox.innerHTML = "";
-                var customerOrders = data.filter(r => r.Phone && r.Phone.toString().trim() === phone);
-                if(customerOrders.length === 0) {
-                    resultBox.innerHTML = '<p style="color:red; margin-top:10px;">এই নম্বরে কোনো অর্ডার খুঁজে পাওয়া যায়নি।</p>';
-                    return;
-                }
-                customerOrders.forEach(order => {
-                    resultBox.innerHTML += `
-                        <div class="order-item">
-                            <p><strong>পণ্য:</strong> ${order.Product || 'N/A'}</p>
-                            <p><strong>অবস্থা:</strong> ${order.Status || 'Pending'}</p>
-                        </div>`;
-                });
-            })
-            .catch(err => { resultBox.innerHTML = "ত্রুটি হয়েছে, আবার চেষ্টা করুন।"; });
+                var orders = data.filter(r => r.Phone && r.Phone.toString().trim() === phone);
+                if(orders.length == 0) resultBox.innerHTML = '<p style="color:red;">No orders found.</p>';
+                else orders.forEach(o => resultBox.innerHTML += `<div class="order-item"><p>Product: ${o.Product}</p><p>Status: ${o.Status}</p></div>`);
+            });
         }
     </script>
 </body>
