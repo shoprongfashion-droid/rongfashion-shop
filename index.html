@@ -1,182 +1,29 @@
 
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RONG Fashion | রঙ ফ্যাশন</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        body { background: #f9f9f9; color: #222; }
-        
-        /* মেনু বার */
-        nav { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        nav .logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
-        nav ul { display: flex; list-style: none; }
-        nav ul li { margin-left: 20px; }
-        nav ul li a { color: #fff; text-decoration: none; font-size: 16px; }
-        
-        /* ব্যানার */
-        .hero { background: #fff; text-align: center; padding: 60px 20px; border-bottom: 1px solid #eee; }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .hero p { color: #666; font-size: 16px; margin-bottom: 15px; }
-        .btn { background: #000; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; transition: 0.3s; cursor: pointer; }
-        .btn:hover { background: #333; }
-        
-        /* প্রোডাক্ট সেকশন */
-        .products { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .category-title { font-size: 24px; margin-top: 30px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #000; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .product-img { width: 100%; height: 200px; background: #eee; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #888; border-radius: 5px; }
-        .price { font-size: 16px; font-weight: bold; color: #e67e22; margin-bottom: 15px; }
-        
-        /* অর্ডার ও পেমেন্ট সেকশন */
-        .payment-section { background: #fff; padding: 30px 20px; max-width: 800px; margin: 30px auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
-        .payment-methods { display: flex; justify-content: center; gap: 15px; margin: 20px 0; font-weight: bold; }
-        .method { padding: 8px 15px; border-radius: 5px; color: #fff; font-size: 14px; }
-        
-        /* অর্ডার হিস্ট্রি সেকশন */
-        .history-section { background: #fff; padding: 40px 20px; max-width: 600px; margin: 40px auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; }
-        .history-section input { width: 70%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; text-align: center; }
-        .history-section button { padding: 10px 25px; background: #28a745; color: #fff; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; }
-        .history-result { margin-top: 25px; text-align: left; }
-        .order-item { background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 12px; border-left: 5px solid #28a745; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: relative; }
-        
-        /* এডিট সাপোর্ট বাটন */
-        .edit-support-btn { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #dc3545; color: #fff; text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold; }
-        
-        footer { background: #000; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
-    </style>
-</head>
-<body>
+<div class="card">
+    <div class="product-img">[ Premium T-Shirt ]</div>
+    <h3>Premium T-Shirt</h3>
+    <div class="price">৳৭৯৯</div>
+    
+    <button onclick="addToWishlist('Premium T-Shirt')" style="background:none; border:none; color:red; cursor:pointer; font-size:18px;">❤️ Add to Wishlist</button>
+    
+    <a href="#order-section" class="buy-btn" style="margin-top:10px;">Order Now</a>
+</div>
 
-    <nav>
-        <a href="#" class="logo">RONG Fashion</a>
-        <ul>
-            <li><a href="#mens-section">ছেলেদের পোশাক</a></li>
-            <li><a href="#womens-section">মেয়েদের পোশাক</a></li>
-            <li><a href="#order-section">অর্ডার ও পেমেন্ট</a></li>
-            <li><a href="#track-section">অর্ডার হিস্ট্রি</a></li>
-        </ul>
-    </nav>
+<section id="review-section" style="text-align:center; padding:40px 20px; background:#fff;">
+    <h2>আমাদের সম্পর্কে কাস্টমারদের মতামত</h2>
+    <p>আপনার রিভিউ দিতে নিচের বাটনে ক্লিক করুন:</p>
+    <a href="আপনার_রিভিউ_গুগল_ফর্মের_লিংক" target="_blank" class="btn" style="background:#007bff; margin-top:15px;">রিভিউ দিন</a>
+</section>
 
-    <section class="hero">
-        <h1>RONG Fashion Shop</h1>
-        <p>সহজ অনলাইন পেমেন্ট ও ক্যাশ অন ডেলিভারি সুবিধায় প্রিমিয়াম কালেকশন</p>
-        <a href="#order-section" class="btn">Order Now</a>
-    </section>
-
-    <section class="products">
-        <h2 id="mens-section" class="category-title">👔 ছেলেদের কালেকশন</h2>
-        <div class="product-grid">
-            <div class="card">
-                <div class="product-img">[ Premium T-Shirt ]</div>
-                <h3>Premium T-Shirt</h3>
-                <div class="price">৳৭৯৯</div>
-                <a href="#order-section" class="btn">Order Now</a>
-            </div>
-            <div class="card">
-                <div class="product-img">[ Exclusive Panjabi ]</div>
-                <h3>Exclusive Panjabi</h3>
-                <div class="price">৳১৯৯৯</div>
-                <a href="#order-section" class="btn">Order Now</a>
-            </div>
-        </div>
-
-        <h2 id="womens-section" class="category-title">👗 মেয়েদের কালেকশন</h2>
-        <div class="product-grid">
-            <div class="card">
-                <div class="product-img">[ Trendy Kurti ]</div>
-                <h3>Trendy Kurti</h3>
-                <div class="price">৳১২৫০</div>
-                <a href="#order-section" class="btn">Order Now</a>
-            </div>
-            <div class="card">
-                <div class="product-img">[ Designer Three Piece ]</div>
-                <h3>Designer Three Piece</h3>
-                <div class="price">৳১৮৫০</div>
-                <a href="#order-section" class="btn">Order Now</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="order-section" class="payment-section">
-        <h2>🛍️ অর্ডার ও পেমেন্ট করার নিয়মাবলী</h2>
-        <p style="margin-top: 10px; color: #555;">আমাদের যেকোনো পণ্য অর্ডার করতে নিচের সবুজ বাটনে ক্লিক করে ফরমটি পূরণ করুন।</p>
-        
-        <div class="payment-methods">
-            <span class="method" style="background: #e2125d;">bKash (Personal: 01XXXXXXXXX)</span>
-            <span class="method" style="background: #f37021;">Nagad (Personal: 01XXXXXXXXX)</span>
-            <span class="method" style="background: #2e3192;">Cash On Delivery</span>
-        </div>
-        <p style="font-size: 14px; color: #777; margin-bottom: 20px;">(বিকাশ বা নগদে অগ্রিম ফুল বা আংশিক পেমেন্ট করতে পারেন, অথবা পণ্য হাতে পেয়েও ক্যাশ অন ডেলিভারি নিতে পারেন)</p>
-        
-        <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn" style="background: #1e7e34; font-size: 18px; padding: 12px 25px;">📝 অর্ডার ফর্ম পূরণ করুন</a>
-    </section>
-
-    <section id="track-section" class="history-section">
-        <h2>📦 আপনার অর্ডার হিস্ট্রি দেখুন</h2>
-        <p style="margin-bottom: 15px; color: #666;">অর্ডার করার সময় যে মোবাইল নম্বর দিয়েছিলেন, সেটি দিয়ে সার্চ করুন</p>
-        <input type="text" id="phoneInput" placeholder="মোবাইল নম্বরটি লিখুন">
-        <br>
-        <button onclick="checkOrderHistory()">Check Order</button>
-        
-        <div class="history-result" id="resultBox"></div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 RONG Fashion. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function checkOrderHistory() {
-            var phone = document.getElementById('phoneInput').value.trim();
-            var resultBox = document.getElementById('resultBox');
-            
-            if(!phone) {
-                alert('দয়া করে একটি মোবাইল নম্বর দিন');
-                return;
-            }
-            
-            resultBox.innerHTML = '<p style="text-align:center; color:#666;">গুগল শিট থেকে তথ্য খোঁজা হচ্ছে, দয়া করে অপেক্ষা করুন...</p>';
-            
-            var sheetBestUrl = "https://api.sheetbest.com/sheets/e4936c44-e340-47af-9694-38385cf871a9";
-            
-            fetch(sheetBestUrl)
-            .then(response => response.json())
-            .then(data => {
-                resultBox.innerHTML = "";
-                
-                var customerOrders = data.filter(function(row) {
-                    return row.Phone && row.Phone.toString().trim() === phone;
-                });
-                
-                if(customerOrders.length === 0) {
-                    resultBox.innerHTML = '<p style="color:red; text-align:center; font-weight:bold;">এই নম্বরে কোনো অর্ডার খুঁজে পাওয়া যায়নি।</p>';
-                    return;
-                }
-                
-                customerOrders.forEach(order => {
-                    var item = document.createElement('div');
-                    item.className = 'order-item';
-                    item.innerHTML = `
-                        <p><strong>তারিখ:</strong> ${order.Timestamp || 'N/A'}</p>
-                        <p><strong>ক্রেতার নাম:</strong> ${order.Name || 'N/A'}</p>
-                        <p><strong>পণ্যের নাম:</strong> <span style="color:#e67e22; font-weight:bold;">${order.Product || 'N/A'}</span></p>
-                        <p><strong>মূল্য:</strong> ${order.Price || 'N/A'}</p>
-                        <p><strong>অর্ডারের অবস্থা:</strong> <span style="color:green; font-weight:bold;">${order.Status || 'Pending'}</span></p>
-                        <a href="https://wa.me/8801XXXXXXXXX?text=আমি আমার অর্ডারটি সংশোধন করতে চাই।" target="_blank" class="edit-support-btn">✏️ তথ্য সংশোধন করুন</a>
-                    `;
-                    resultBox.appendChild(item);
-                });
-            })
-            .catch(error => {
-                resultBox.innerHTML = '<p style="color:red; text-align:center;">দুঃখিত, তথ্য লোড করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।</p>';
-                console.error(error);
-            });
+<script>
+    function addToWishlist(productName) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        if(!wishlist.includes(productName)) {
+            wishlist.push(productName);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert(productName + ' আপনার ফেভারিট লিস্টে যোগ হয়েছে!');
+        } else {
+            alert('এটি আগে থেকেই আপনার লিস্টে আছে!');
         }
-    </script>
-
-</body>
-</html>
+    }
+</script>
